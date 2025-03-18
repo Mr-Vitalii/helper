@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Orbitron", sans-serif;
+}
+
+body {
+  background: #1C1C24;
+}
+
+a {
+  color: #1ba5e0;
+  text-decoration: none;
+  transition: 0.3s;
+
+  &:hover {
+    color: #d30da1;
+  }
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
