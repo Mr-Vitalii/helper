@@ -1,4 +1,4 @@
-@import "../styles/global.scss";
+@use "../styles/global.scss";
 
 .home {
   display: flex;
@@ -34,7 +34,7 @@
   }
 }
 
-.copyButton {
+.home__copy_button {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -52,7 +52,65 @@
   }
 }
 
-.clearButton {
+.home__options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.home__checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 18px;
+  color: #06b5e0;
+  position: relative;
+  padding-left: 32px;
+  user-select: none;
+  transition: color 0.4s ease-in-out, transform 0.2s ease;
+
+  input {
+    position: absolute;
+    display: none;
+  }
+
+  &:hover,
+  &:focus {
+    color: #c63fa4;
+  }
+}
+
+.home__checkboxCustom {
+  position: absolute;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  background: #162732;
+  border: 2px solid #06b5e0;
+  border-radius: 4px;
+  transition: 0.3s ease;
+}
+
+.home__checkbox input:checked+.home__checkboxCustom {
+  background: linear-gradient(45deg, #06b5e0, #f702a3);
+  border-color: #f702a3;
+  box-shadow: 0 0 8px #06b5e0;
+}
+
+.home__checkbox input:checked+.home__checkboxCustom::after {
+  content: "✔";
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.home__clear_button {
   padding: 10px 20px;
   background: linear-gradient(135deg, #1c72d5, #8e066c);
   color: white;
