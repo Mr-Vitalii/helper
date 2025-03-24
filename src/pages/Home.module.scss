@@ -57,13 +57,12 @@
   max-width: 700px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-
+  padding: 8px;
   gap: 12px;
 }
 
 .home__checkbox {
-  flex: 0 1 48%;
+  flex: 0 1 49%;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -129,5 +128,25 @@
   &:hover {
     background: linear-gradient(135deg, #8e066c, #1c72d5);
     border: 2px solid #df0daa;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .home__checkbox {
+    font-size: 16px;
+  }
+}
+
+
+
+@media screen and (max-width: 525px) {
+
+  .home__checkbox {
+    flex: 0 1 48%;
+  }
+
+  .home__checkbox {
+    font-size: 14px;
   }
 }

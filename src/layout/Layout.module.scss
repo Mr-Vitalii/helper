@@ -13,3 +13,10 @@
   border-radius: 10px;
   margin: 20px;
 }
+
+@media screen and (max-width: 768px) {
+  .content {
+    padding: 10px;
+    margin: 10px;
+  }
+}

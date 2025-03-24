@@ -10,6 +10,7 @@ export const Home = () => {
   const [addNoFollow, setAddNoFollow] = useState(false)
   const [replaceLinksWithSpan, setReplaceLinksWithSpan] = useState(false)
   const [wrapWithSection, setWrapWithSection] = useState(false)
+  const [removeHeader, setRemoveHeader] = useState(false)
 
   const toggleRemoveAttributes = () => {
     setRemoveAttributes((prev) => !prev)
@@ -35,6 +36,10 @@ export const Home = () => {
     setWrapWithSection((prev) => !prev)
   }
 
+  const toggleRemoveHeader = () => {
+    setRemoveHeader((prev) => !prev)
+  }
+
   const handleClear = () => {
     setText(
       cleanHtml(
@@ -44,7 +49,8 @@ export const Home = () => {
         removeStylesScripts,
         addNoFollow,
         replaceLinksWithSpan,
-        wrapWithSection
+        wrapWithSection,
+        removeHeader
       )
     )
   }
@@ -69,7 +75,7 @@ export const Home = () => {
           className={styles.home__textarea}
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder='Вставьте сюда код...'
+          placeholder='Вставьте сюда HTML код...'
         />
         <button className={styles.home__copy_button} onClick={handleCopy}>
           Copy
@@ -124,7 +130,7 @@ export const Home = () => {
             onChange={toggleAddNoFollow}
           />
           <span className={styles.home__checkboxCustom}></span>
-          Добавить rel="nofollow для ссылок"
+          Добавить rel="nofollow" для ссылок
         </label>
 
         <label className={styles.home__checkbox}>
@@ -135,6 +141,16 @@ export const Home = () => {
           />
           <span className={styles.home__checkboxCustom}></span>
           Заменить ссылку на тег &lt;span&gt;
+        </label>
+
+        <label className={styles.home__checkbox}>
+          <input
+            type='checkbox'
+            checked={removeHeader}
+            onChange={toggleRemoveHeader}
+          />
+          <span className={styles.home__checkboxCustom}></span>
+          Удалить &lt;header&gt;
         </label>
       </div>
 

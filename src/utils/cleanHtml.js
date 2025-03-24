@@ -1,4 +1,4 @@
-export const cleanHtml = (text, removeAttributes, removeTags, removeStylesScripts, addNoFollow, replaceLinksWithSpan, wrapWithSection) => {
+export const cleanHtml = (text, removeAttributes, removeTags, removeStylesScripts, addNoFollow, replaceLinksWithSpan, wrapWithSection, removeHeader) => {
   let htmlContent = text;
   let firstH2 = true;
 
@@ -54,9 +54,20 @@ export const cleanHtml = (text, removeAttributes, removeTags, removeStylesScript
       }
     });
 
-    // Закрываем последний <section> в конце
-    htmlContent += "</section></section>";
+    // Проверяем, есть ли тег </main> в коде
+    if (htmlContent.includes("</main>")) {
+      // Вставляем </section> перед закрывающим тегом </main>
+      htmlContent = htmlContent.replace(/<\/main>/i, "</section></section></main>");
+    } else {
+      // Если </main> нет, просто закрываем секцию
+      htmlContent += "</section></section>";
+    }
 
+  }
+
+  if (removeHeader) {
+    // Удаляем <header> и всё его содержимое
+    htmlContent = htmlContent.replace(/<header.*?>.*?<\/header>/gis, "");
   }
 
   return htmlContent;
