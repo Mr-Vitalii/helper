@@ -2,6 +2,8 @@ import { useState } from 'react'
 import styles from './Home.module.scss'
 import { cleanHtml } from '@/utils/cleanHtml'
 
+import CopyIcon from '../assets/copy.svg?react'
+
 export const Home = () => {
   const [text, setText] = useState('')
   const [removeAttributes, setRemoveAttributes] = useState(false)
@@ -78,7 +80,7 @@ export const Home = () => {
           placeholder='Вставьте сюда HTML код...'
         />
         <button className={styles.home__copy_button} onClick={handleCopy}>
-          Copy
+          <CopyIcon width={30} height={30} />
         </button>
       </div>
 

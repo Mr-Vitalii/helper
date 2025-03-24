@@ -38,18 +38,22 @@
   position: absolute;
   top: 8px;
   right: 8px;
-  background: #8e066c;
-  color: white;
   border: none;
-  padding: 8px;
+  background: transparent;
   border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
   transition: 0.3s;
 
-  &:hover {
-    opacity: 0.8;
+  svg {
+    fill: #06b5e0;
+    transition: 0.3s;
   }
+
+  svg:hover {
+    fill: #f702a3;
+  }
+
 }
 
 .home__options {
